@@ -2,6 +2,7 @@ package jaspertechShoppingCentre.dto.response;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Getter
 @Setter
@@ -13,7 +14,7 @@ public class BrandResponse {
 
     private String brandDescription;
     private String logoUrl;
-    private Date createAt;
+    private LocalDate createAt;
 
-    private Date updateAt;
+    private String updateAt;
 }

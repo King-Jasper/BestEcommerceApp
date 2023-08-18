@@ -21,7 +21,6 @@ public class Order extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @Column(nullable = false)
     private LocalDateTime orderDate;
 
@@ -39,7 +38,7 @@ public class Order extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private AppUser user;
+    private AppUser appUser;
 
     private DeliveryStatus deliveryStatus;
 

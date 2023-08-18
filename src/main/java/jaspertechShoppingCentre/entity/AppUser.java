@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jaspertechShoppingCentre.enums.Gender;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.*;
@@ -19,6 +20,7 @@ public class AppUser extends BaseEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String email;
 
     @Column(name = "first_name", nullable = false)
@@ -52,7 +54,6 @@ public class AppUser extends BaseEntity implements UserDetails {
     @OneToMany(mappedBy = "appUser", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<Order> order = new HashSet<>();
 
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="cart_id")
     private Cart cart = new Cart();
@@ -67,12 +68,12 @@ public class AppUser extends BaseEntity implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return List.of(new SimpleGrantedAuthority(role.getRoleName()));
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return email;
     }
 
     @Override

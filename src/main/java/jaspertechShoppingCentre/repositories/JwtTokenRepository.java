@@ -9,10 +9,10 @@ import java.util.Optional;
 
 public interface JwtTokenRepository extends JpaRepository<JwtToken, Long> {
     @Query("""
-         select  t from JwtToken t inner join AppUser u on t.appUser.id = u.id
-         where u.id = :appUserId and  (t.isExpired= false or t.isRevoked=false)
-          """)
-    List<JwtToken> findAllValidTokenByUser(Long  appUserId);
+    SELECT t FROM JwtToken t INNER JOIN t.appUser u WHERE u.id = :appUserId AND (t.isExpired = false OR t.isRevoked = false)
+""")
+    List<JwtToken> findAllByAppUserAndNotExpiredOrRevoked(Long appUserId);
+
     Optional<JwtToken> findByAccessToken(String accessToken);
 
 }

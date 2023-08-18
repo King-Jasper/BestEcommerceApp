@@ -24,9 +24,8 @@ import java.util.function.Function;
 @Service
 @RequiredArgsConstructor
 public class JwtService {
-    private final JwtTokenRepository jwtTokenRepository;
 
-    private UserDetailsService userDetailsService;
+    private final JwtTokenRepository jwtTokenRepository;
 
     @Value("${jwt.expiration.access-token}")
     private long access_expiration;
@@ -112,7 +111,7 @@ public class JwtService {
     }
 
     public void revokedAllUserToken(AppUser appUser) {
-        List<JwtToken> jwtTokensValidation = jwtTokenRepository.findAllValidTokenByUser(appUser.getId());
+        List<JwtToken> jwtTokensValidation = jwtTokenRepository.findAllByAppUserAndNotExpiredOrRevoked(appUser.getId());
         if (!jwtTokensValidation.isEmpty()) {
             jwtTokensValidation.forEach(
                     t -> {

@@ -1,4 +1,4 @@
-package jaspertechShoppingCentre.event;
+package jaspertechShoppingCentre.event.register;
 
 import jaspertechShoppingCentre.entity.AppUser;
 import jaspertechShoppingCentre.entity.VerificationToken;

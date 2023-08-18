@@ -3,7 +3,7 @@ package jaspertechShoppingCentre.serviceImpl;
 import jakarta.servlet.http.HttpServletRequest;
 import jaspertechShoppingCentre.entity.AppUser;
 import jaspertechShoppingCentre.entity.VerificationToken;
-import jaspertechShoppingCentre.event.RegistrationCompleteEvent;
+import jaspertechShoppingCentre.event.register.RegistrationCompleteEvent;
 import jaspertechShoppingCentre.exceptions.AppUserNotFoundException;
 import jaspertechShoppingCentre.exceptions.TokenNotFoundException;
 import jaspertechShoppingCentre.repositories.AppUserRepository;

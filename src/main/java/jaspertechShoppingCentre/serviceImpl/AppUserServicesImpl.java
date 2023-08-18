@@ -14,7 +14,7 @@ import jaspertechShoppingCentre.entity.Role;
 import jaspertechShoppingCentre.entity.Wallet;
 import jaspertechShoppingCentre.enums.BaseCurrency;
 import jaspertechShoppingCentre.enums.Gender;
-import jaspertechShoppingCentre.event.RegistrationCompleteEvent;
+import jaspertechShoppingCentre.event.register.RegistrationCompleteEvent;
 import jaspertechShoppingCentre.exceptions.AppUserNotFoundException;
 import jaspertechShoppingCentre.exceptions.UserCredentialsNotFoundException;
 import jaspertechShoppingCentre.exceptions.UserDetailsNotFoundException;
